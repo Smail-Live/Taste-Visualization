@@ -1,0 +1,30 @@
+{% sw_extends '@odsGustoThemePlatform/storefront/page/product-detail/tabs.html.twig' %}
+
+ {% block page_product_detail_tabs_content %}
+     <div class="product-detail-tabs-content card-body " style="background: #121212;">
+         {% block page_product_detail_tabs_content_container %}
+             <div class="tab-content ">
+                 {% block page_product_detail_tabs_content_description %}
+                     <div class="tab-pane fade show {% if (ratingSuccess != 1) and (ratingSuccess != -1) %}active{% endif %}"
+                          id="description-tab-pane"
+                          role="tabpanel"
+                          aria-labelledby="description-tab">
+                         {% sw_include '@Storefront/storefront/page/product-detail/description.html.twig' %}
+                         <p>Test</p>
+                     </div>
+                 {% endblock %}
+
+                 {% block page_product_detail_tabs_content_review %}
+                     {% if config('core.listing.showReview') %}
+                         <div class="tab-pane fade show {% if (ratingSuccess == 1) or (ratingSuccess == -1) %}active{% endif %}"
+                              id="review-tab-pane"
+                              role="tabpanel"
+                              aria-labelledby="review-tab">
+                             {% sw_include '@Storefront/storefront/page/product-detail/review/review.html.twig' with {'reviews': page.reviews} %}
+                         </div>
+                     {% endif %}
+                 {% endblock %}
+             </div>
+         {% endblock %}
+     </div>
+ {% endblock %}

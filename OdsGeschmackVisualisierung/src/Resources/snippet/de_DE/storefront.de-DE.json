@@ -1,0 +1,22 @@
+{
+    "od-product-description": {
+        "taste-visualization" : {
+            "options": {
+                "Soft": "Weich",
+                "Acidic": "Säurehaltig",
+                "Light": "Leicht",
+                "Bold": "Üppig",
+                "Dry": "Trocken",
+                "Sweet": "Süß",
+                "Smooth": "Sanft",
+                "Tannic": "Tanninhaltig"
+            },
+            "groups": {
+                "Acidity": "Gesamtsäure",
+                "Alcohol": "Alkoholgehalt",
+                "residual-sugar-content": "Restzuckergehalt",
+                "tannins": "Tannine"
+            }
+        }
+    }
+}

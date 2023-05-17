@@ -1,0 +1,24 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Onedrop\GeschmackVisualisierung\:
+        resource: '../../*'
+        exclude: '../../{DependencyInjection, OdsGeschmackVisualisierung.php}'
+    Onedrop\GeschmackVisualisierung\Entities\twoDimensionalPropertiesConfig\TwoDimensionalPropertiesDefinition:
+        tags:
+            - { name: "shopware.entity.definition", entity: "two_dimensional_properties" }
+
+    Onedrop\GeschmackVisualisierung\Subscriber\ProductSubscriber:
+        tags:
+            - { name: "kernel.event_subscriber"}
+            - { name : "kernel.event_listener"}
+        arguments:
+            $configData: '@Onedrop\GeschmackVisualisierung\Services\GetConfigData'
+            $propertyGroupRepository : '@property_group.repository'
+
+    Onedrop\GeschmackVisualisierung\Services\GetConfigData:
+        tags:
+        arguments:
+            $systemConfigService: '@Shopware\Core\System\SystemConfig\SystemConfigService'

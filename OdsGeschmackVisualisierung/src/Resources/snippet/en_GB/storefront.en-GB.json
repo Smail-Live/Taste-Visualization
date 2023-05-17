@@ -1,0 +1,16 @@
+{
+    "od-product-description": {
+        "taste-visualization" : {
+            "options": {
+                "Soft": "Soft",
+                "Acidic": "Acidic",
+                "Light": "Light",
+                "Bold": "Bold",
+                "Dry": "Dry",
+                "Sweet": "Sweet",
+                "Smooth": "Smooth",
+                "Tannic": "Tannic"
+            }
+        }
+    }
+}

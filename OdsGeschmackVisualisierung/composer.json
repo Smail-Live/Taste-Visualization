@@ -1,0 +1,32 @@
+{
+  "name": "onedrop/geschmack-visualisierung",
+  "description": "Taste Visualization",
+  "version": "v1.0.0",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "authors": [
+      {
+          "name": "Ismail El Fadili"
+      }
+  ],
+  "require": {
+      "shopware/core": "*",
+      "shopware/storefront": "*"
+  },
+  "extra": {
+    "shopware-plugin-class": "Onedrop\\GeschmackVisualisierung\\OdsGeschmackVisualisierung",
+    "label": {
+      "de-DE": "Geschmack Visualisierung",
+      "en-GB": "Taste Visualization"
+    },
+    "description": {
+        "de-DE": "Geschmack Visualisierung",
+        "en-GB": "Taste Visualization"
+    }
+  },
+  "autoload": {
+      "psr-4": {
+          "Onedrop\\GeschmackVisualisierung\\": "src/"
+      }
+  }
+}
