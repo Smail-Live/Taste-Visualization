@@ -97,4 +97,101 @@ class Installer
         ];
 
         foreach ($propertyGroupData as $index => $groupData) {
-            $groupId = $propertyGroupIds[$index
+            $groupId = $propertyGroupIds[$index];
+
+            // Check if property group exists
+            $criteria = new Criteria([$groupId]);
+            $existingGroup = $this->propertyGroupRepository->search($criteria, $context)->first();
+            if (!$existingGroup) {
+                if ($groupData['id'] = $groupId) {
+                    $this->propertyGroupRepository->upsert([$groupData], $context);
+                }
+            } else {
+                break;
+            }
+        }
+
+        // Create the property group options
+
+        $propertyGroup1OptionsData = [];
+
+        for ($i = 5; $i <= 25; ++$i) {
+            $name = $i . '%';
+
+            $optionData1 = [
+                'id' => Uuid::randomHex(),
+                'groupId' => $propertyGroupIds[0],
+                'name' => $name,
+                'position' => $i - 4,
+            ];
+
+            $propertyGroup1OptionsData[] = $optionData1;
+        }
+
+        $propertyGroup2OptionsData = [];
+
+        for ($i = 1; $i <= 250; $i += 4) {
+            $name = $i . 'g/l';
+
+            $optionData2 = [
+                'id' => Uuid::randomHex(),
+                'groupId' => $propertyGroupIds[1],
+                'name' => $name,
+                'position' => $i,
+            ];
+
+            $propertyGroup2OptionsData[] = $optionData2;
+        }
+
+        $propertyGroup3OptionsData = [];
+
+        for ($i = 4; $i <= 10; $i += 1) {
+            $name = $i . 'g/l';
+
+            $optionData3 = [
+                'id' => Uuid::randomHex(),
+                'groupId' => $propertyGroupIds[2],
+                'name' => $name,
+                'position' => $i - 3,
+            ];
+
+            $propertyGroup3OptionsData[] = $optionData3;
+        }
+
+        $propertyGroup4OptionsData = [
+            [
+                'id' => Uuid::randomHex(),
+                'groupId' => $propertyGroupIds[3],
+                'name' => [
+                    'de-DE' => 'low',
+                    'en-GB' => 'niedrig',
+                ],
+                'position' => 1,
+            ],
+            [
+                'id' => Uuid::randomHex(),
+                'groupId' => $propertyGroupIds[3],
+                'name' => [
+                    'de-DE' => 'medium',
+                    'en-GB' => 'mittel',
+                ],
+                'position' => 2,
+            ],
+            [
+                'id' => Uuid::randomHex(),
+                'groupId' => $propertyGroupIds[3],
+                'name' => [
+                    'de-DE' => 'high',
+                    'en-GB' => 'hoch',
+                ],
+                'position' => 3,
+            ],
+            // Add more options as needed
+        ];
+
+        $this->propertyGroupOptionRepository->upsert($propertyGroup1OptionsData, $context);
+        $this->propertyGroupOptionRepository->upsert($propertyGroup2OptionsData, $context);
+        $this->propertyGroupOptionRepository->upsert($propertyGroup3OptionsData, $context);
+        $this->propertyGroupOptionRepository->upsert($propertyGroup4OptionsData, $context);
+    }
+}
