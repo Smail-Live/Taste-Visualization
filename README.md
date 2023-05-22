@@ -61,13 +61,4 @@ The requirements mentioned will be checked by a script if you try to start this 
 * Hot reload through SSL
 * E2E Testing with [Playwright](https://playwright.dev/docs/intro/)
 
-Still missing:
-* [Sitespeed](https://www.sitespeed.io/)
-* Load testing
-* Visual regression
-* Sentry integration
-* Mattermost integration
-* Smoke testing with autofixing
-* pa11y testing
-
 
