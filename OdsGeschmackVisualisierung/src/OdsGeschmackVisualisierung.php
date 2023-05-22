@@ -13,6 +13,11 @@ use Shopware\Core\Framework\Plugin\Context\UpdateContext;
  */
 class OdsGeschmackVisualisierung extends Plugin
 {
+    /**
+     * Installs the plugin.
+     *
+     * @param InstallContext $installContext The installation context
+     */
     public function install(InstallContext $installContext): void
     {
         parent::install($installContext);
@@ -21,6 +26,11 @@ class OdsGeschmackVisualisierung extends Plugin
         $installer->createPropertyGroup($this->container, $installContext->getContext());
     }
 
+    /**
+     * Updates the plugin.
+     *
+     * @param UpdateContext $updateContext The update context
+     */
     public function update(UpdateContext $updateContext): void
     {
         parent::update($updateContext);
@@ -29,6 +39,11 @@ class OdsGeschmackVisualisierung extends Plugin
         $installer->createPropertyGroup($this->container, $updateContext->getContext());
     }
 
+    /**
+     * Uninstalls the plugin.
+     *
+     * @param UninstallContext $uninstallContext The uninstallation context
+     */
     public function uninstall(UninstallContext $uninstallContext): void
     {
         parent::uninstall($uninstallContext);
